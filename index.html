@@ -38,12 +38,14 @@
         body {
             font-family: 'Nunito Sans', sans-serif;
             color: var(--text-warm);
-            height: 100vh;
+            min-height: 100vh;
+            min-height: 100dvh;
             width: 100vw;
             overflow: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
+            padding: 4vh 0;
             background: var(--pine-deep);
         }
 
@@ -350,9 +352,13 @@
             backdrop-filter: blur(14px);
             -webkit-backdrop-filter: blur(14px);
             width: 90%;
-            max-width: 720px;
+            max-width: 660px;
             height: fit-content;
-            padding: 2.8rem 3.2rem;
+            max-height: 90vh;
+            max-height: 90dvh;
+            overflow-y: auto;
+            overscroll-behavior: contain;
+            padding: 2.2rem 2.6rem;
             position: relative;
             z-index: 10;
             text-align: left;
@@ -360,6 +366,15 @@
             border: 1px solid rgba(196, 138, 78, 0.3);
             box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55), inset 0 0 20px rgba(255, 255, 255, 0.03);
             transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .card::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .card::-webkit-scrollbar-thumb {
+            background: rgba(196, 138, 78, 0.35);
+            border-radius: 6px;
         }
 
         .elevation-tag {
@@ -379,10 +394,10 @@
         h1 {
             font-family: 'Fraunces', serif;
             font-weight: 400;
-            font-size: clamp(2.1rem, 5.5vw, 3rem);
+            font-size: clamp(1.9rem, 4.6vw, 2.55rem);
             color: var(--text-fog);
-            margin-bottom: 0.3rem;
-            line-height: 1.15;
+            margin-bottom: 0.25rem;
+            line-height: 1.12;
         }
 
         h1 em {
@@ -394,8 +409,8 @@
             font-family: 'Nunito Sans', sans-serif;
             font-style: italic;
             font-weight: 400;
-            font-size: 1.02rem;
-            margin-bottom: 1.1rem;
+            font-size: 0.98rem;
+            margin-bottom: 0.85rem;
             color: rgba(238, 244, 241, 0.55);
         }
 
@@ -403,19 +418,19 @@
             width: 54px;
             height: 1px;
             background: linear-gradient(90deg, var(--caramel), transparent);
-            margin-bottom: 1.4rem;
+            margin-bottom: 1.05rem;
         }
 
         .invite-text {
-            line-height: 1.8;
-            margin-bottom: 1.6rem;
-            font-size: 1.06rem;
+            line-height: 1.72;
+            margin-bottom: 1.15rem;
+            font-size: 1.01rem;
             font-weight: 400;
             color: rgba(238, 244, 241, 0.92);
         }
 
         .invite-text p+p {
-            margin-top: 1.05rem;
+            margin-top: 0.85rem;
         }
 
         .invite-text .accent {
@@ -425,19 +440,36 @@
 
         .invite-text .lead::first-letter {
             font-family: 'Fraunces', serif;
-            font-size: 3.1rem;
+            font-size: 2.8rem;
             line-height: 0.85;
             float: left;
-            margin: 6px 10px 0 0;
+            margin: 5px 9px 0 0;
             color: var(--caramel-light);
+        }
+
+        .note {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: rgba(238, 244, 241, 0.62);
+            border-left: 2px solid rgba(196, 138, 78, 0.45);
+            padding-left: 14px;
+            margin-bottom: 1.15rem;
+        }
+
+        .from-line {
+            font-family: 'Fraunces', serif;
+            font-style: italic;
+            font-size: 1.12rem;
+            color: var(--caramel-light);
+            margin-bottom: 1.35rem;
         }
 
         .sign-off {
             font-family: 'Fraunces', serif;
             font-style: italic;
-            font-size: 1.05rem;
+            font-size: 1rem;
             color: rgba(238, 244, 241, 0.7);
-            margin-bottom: 1.6rem;
+            margin-bottom: 0.85rem;
         }
 
         /* ============ INPUT ============ */
@@ -567,6 +599,7 @@
             align-items: center;
             text-align: center;
             transform: translateX(12vw);
+            overflow: hidden !important;
             backdrop-filter: none;
             -webkit-backdrop-filter: none;
         }
@@ -770,10 +803,47 @@
         }
 
         /* ============ RESPONSIVE ============ */
-        @media (max-width: 480px) {
+
+        /* short desktop windows: pull everything in a little more */
+        @media (min-width: 769px) and (max-height: 760px) {
+            .card {
+                padding: 1.8rem 2.2rem;
+            }
+
+            .invite-text {
+                font-size: 0.96rem;
+                line-height: 1.62;
+            }
+
+            .note {
+                font-size: 0.86rem;
+            }
+
+            .success-card {
+                max-width: 400px !important;
+                padding: 2.4rem !important;
+            }
+        }
+
+        /* tablets and small laptops */
+        @media (min-width: 481px) and (max-width: 1024px) {
+            .card {
+                padding: 2rem 1.9rem;
+                width: 88%;
+            }
+
+            .success-card {
+                transform: translateX(4vw) !important;
+                max-width: 400px !important;
+                padding: 2.6rem 2rem !important;
+            }
+        }
+
+        /* phones */
+        @media (max-width: 768px) {
             body {
                 align-items: center;
-                overflow: hidden;
+                padding: 2.5vh 0;
             }
 
             #overlay h2 {
@@ -785,40 +855,65 @@
                 font-size: 0.6rem;
             }
 
+            .cup-mark {
+                width: clamp(84px, 22vw, 104px);
+            }
+
             .card {
-                padding: 2.1rem 1.5rem;
-                width: 92%;
-                max-height: 92vh;
-                overflow-y: auto;
+                padding: 1.7rem 1.35rem;
+                width: 91%;
+                max-width: 91%;
+                max-height: 88vh;
+                max-height: 88dvh;
                 border-radius: 4px 26px 4px 26px;
-                text-align: center;
+                text-align: left;
             }
 
             .elevation-tag {
-                font-size: 0.6rem;
+                font-size: 0.58rem;
+                letter-spacing: 2px;
+                padding: 3px 10px;
+                margin-bottom: 0.9rem;
             }
 
             h1 {
-                font-size: clamp(1.8rem, 9vw, 2.4rem);
+                font-size: clamp(1.75rem, 8.5vw, 2.3rem);
             }
 
             .subtitle {
-                font-size: 0.95rem;
+                font-size: 0.9rem;
+                margin-bottom: 0.7rem;
             }
 
             .rule {
-                margin-left: auto;
-                margin-right: auto;
-                background: linear-gradient(90deg, transparent, var(--caramel), transparent);
+                margin-bottom: 0.9rem;
             }
 
             .invite-text {
-                font-size: 0.97rem;
-                text-align: left;
+                font-size: 0.94rem;
+                line-height: 1.68;
+                margin-bottom: 1rem;
+            }
+
+            .invite-text .lead::first-letter {
+                font-size: 2.4rem;
+                margin: 4px 8px 0 0;
+            }
+
+            .note {
+                font-size: 0.84rem;
+                padding-left: 11px;
+                margin-bottom: 1rem;
+            }
+
+            .from-line {
+                font-size: 1.05rem;
+                margin-bottom: 1.1rem;
             }
 
             .sign-off {
-                text-align: left;
+                font-size: 0.94rem;
+                margin-bottom: 0.75rem;
             }
 
             .input-group {
@@ -830,39 +925,73 @@
             #answerInput {
                 max-width: 100%;
                 width: 100%;
-                font-size: 1rem;
+                font-size: 16px;
+                /* 16px keeps iOS from zooming on focus */
+                padding: 14px 18px;
             }
 
             button {
                 width: 100%;
-                font-size: 0.85rem;
+                font-size: 0.82rem;
                 padding: 15px;
+            }
+
+            #feedbackMsg {
+                font-size: 0.92rem;
             }
 
             .success-card {
                 transform: translateX(0) !important;
                 border-radius: 26px !important;
                 aspect-ratio: unset !important;
-                width: 92% !important;
-                max-width: 92% !important;
-                padding: 2.4rem 1.6rem !important;
+                width: 91% !important;
+                max-width: 91% !important;
+                padding: 2.5rem 1.6rem !important;
+                text-align: center;
             }
 
             .success-card em {
                 max-width: 100%;
+                font-size: clamp(1.35rem, 6.5vw, 1.7rem);
+            }
+
+            .now-playing {
+                margin-top: 1.4rem;
+                padding: 8px 14px 8px 11px;
+            }
+
+            .np-text .np-title {
+                font-size: 0.75rem;
+            }
+
+            .np-text .np-artist {
+                font-size: 0.58rem;
+            }
+
+            .success-card .signature {
+                margin-top: 1.4rem;
+                font-size: 0.7rem;
+                letter-spacing: 1.5px;
+            }
+
+            .success-card .place {
+                font-size: 0.78rem;
+                max-width: 100%;
             }
         }
 
-        @media (min-width: 481px) and (max-width: 1024px) {
+        /* very small phones */
+        @media (max-width: 360px) {
             .card {
-                padding: 2.4rem 2.1rem;
-                width: 85%;
+                padding: 1.5rem 1.15rem;
             }
 
-            .success-card {
-                transform: translateX(6vw) !important;
-                max-width: 420px !important;
-                padding: 2.8rem 2rem !important;
+            .invite-text {
+                font-size: 0.9rem;
+            }
+
+            h1 {
+                font-size: 1.65rem;
             }
         }
 
@@ -947,6 +1076,12 @@
                         class="accent">You are.</span> Nothing planned past the coffee — just the cold outside, the
                     steam off the cups, and however long the conversation wants to run.</p>
             </div>
+
+            <p class="note">And if this is moving a little fast for you — I completely understand. Say so and there
+                are no hard feelings at all. I'd rather go at whatever pace feels right to you than rush something
+                worth being patient about.</p>
+
+            <p class="from-line">— from kencchi</p>
 
             <p class="sign-off">Say anything back. Even one word.</p>
 
