@@ -438,6 +438,11 @@
             font-weight: 600;
         }
 
+        .invite-text em {
+            font-style: italic;
+            color: var(--caramel-light);
+        }
+
         .invite-text .lead::first-letter {
             font-family: 'Fraunces', serif;
             font-size: 2.8rem;
@@ -605,6 +610,11 @@
         }
 
         #success-content {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
             opacity: 0;
             transform: scale(0.8) translateY(20px);
             transition: all 1s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -670,6 +680,7 @@
             display: block;
             line-height: 1.45;
             max-width: 15ch;
+            margin: 0 auto;
         }
 
         /* hidden audio source */
@@ -796,10 +807,12 @@
             font-family: 'Nunito Sans', sans-serif;
             font-size: 0.82rem;
             color: rgba(43, 32, 24, 0.55);
-            margin-top: 7px;
+            margin: 7px auto 0;
             font-style: italic;
-            max-width: 26ch;
+            max-width: 24ch;
             line-height: 1.5;
+            text-align: center;
+            text-wrap: balance;
         }
 
         /* ============ RESPONSIVE ============ */
@@ -1070,11 +1083,13 @@
                     ride up the mountain and I'd still take it — because I'd rather have one afternoon getting to know
                     you properly, unhurried and in person, than another week of doing it through a screen.</p>
 
-                <p>So: <span class="accent">this Friday</span>, I'm getting on the bus. A <span class="accent">hot
-                        caramel macchiato</span>, my treat. I'll bring my film camera too — a few Kodak shots of you,
-                    if you'll let me. And to be honest, Baguio isn't really the reason I'm going up. <span
-                        class="accent">You are.</span> Nothing planned past the coffee — just the cold outside, the
-                    steam off the cups, and however long the conversation wants to run.</p>
+                <p>So: <span class="accent">this Friday, August 21</span>, I'm getting on the bus. A <span
+                        class="accent">hot caramel macchiato</span>, my treat — we can talk over it for as long as you
+                    want. I'll bring my film camera too, a few Kodak shots of you if you'll let me. And to be honest,
+                    Baguio isn't really the reason I'm going up. <span class="accent">You are.</span> Nothing rigid
+                    past the coffee either — if the weather turns nice we can walk around, stroll wherever, take in
+                    whatever scenery the fog decides to show us. You can even tour me around, <em>ukininam</em>, since
+                    I'd probably get lost on my own anyway.</p>
             </div>
 
             <p class="note">And if this is moving a little fast for you — I completely understand. Say so and there
@@ -1112,7 +1127,7 @@
                 </span>
             </div>
 
-            <p class="signature">See you Friday, Shane</p>
+            <p class="signature">See you, Shane</p>
             <p class="place">— a café somewhere up in Baguio, right as the sun comes back</p>
         </div>
     </div>
