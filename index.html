@@ -64,7 +64,7 @@
             position: absolute;
             inset: 0;
             background:
-                radial-gradient(circle at 74% 26%, rgba(255, 226, 168, 0.85), transparent 52%),
+                radial-gradient(135% 75% at 76% 20%, rgba(255, 226, 168, 0.6), transparent 62%),
                 linear-gradient(180deg, #7e94a8 0%, #d9a97f 42%, #f0c489 68%, #f7e3c4 100%);
             opacity: 0;
             transition: opacity 2.6s ease;
@@ -72,6 +72,44 @@
 
         body.cleared .sky-clear {
             opacity: 1;
+        }
+
+        /* the sun itself: always round, never clipped by the viewport */
+        .sun {
+            position: absolute;
+            top: 15%;
+            right: 15%;
+            width: clamp(76px, 11vw, 132px);
+            aspect-ratio: 1 / 1;
+            border-radius: 50%;
+            background: radial-gradient(circle closest-side,
+                    #fffaf0 0%,
+                    #ffe6b8 42%,
+                    rgba(255, 214, 152, 0.55) 72%,
+                    rgba(255, 205, 140, 0) 100%);
+            box-shadow: 0 0 70px 26px rgba(255, 208, 143, 0.38);
+            opacity: 0;
+            transform: translateY(26px) scale(0.86);
+            transition: opacity 2.4s ease, transform 3.2s cubic-bezier(0.22, 1, 0.36, 1);
+            pointer-events: none;
+        }
+
+        body.cleared .sun {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            animation: sunBreathe 7s ease-in-out 3s infinite;
+        }
+
+        @keyframes sunBreathe {
+
+            0%,
+            100% {
+                box-shadow: 0 0 70px 26px rgba(255, 208, 143, 0.34);
+            }
+
+            50% {
+                box-shadow: 0 0 92px 34px rgba(255, 208, 143, 0.5);
+            }
         }
 
         .ridge {
@@ -872,6 +910,63 @@
                 width: clamp(84px, 22vw, 104px);
             }
 
+            /* ridgelines: give them real height so they read as mountains,
+               and widen them so the peaks aren't squeezed together */
+            .ridge {
+                left: -30%;
+                width: 160%;
+            }
+
+            #ridge-far {
+                height: 17vh;
+                bottom: 24%;
+            }
+
+            #ridge-mid {
+                height: 21vh;
+                bottom: 11%;
+            }
+
+            #ridge-near {
+                height: 26vh;
+                bottom: -2%;
+            }
+
+            .fog-band {
+                height: 130px;
+            }
+
+            .fog-band.one {
+                top: 33%;
+            }
+
+            .fog-band.two {
+                top: 57%;
+            }
+
+            .fog-band.three {
+                top: 16%;
+            }
+
+            .sun {
+                top: 11%;
+                right: 12%;
+                width: clamp(72px, 21vw, 104px);
+                box-shadow: 0 0 52px 18px rgba(255, 208, 143, 0.36);
+            }
+
+            @keyframes sunBreathe {
+
+                0%,
+                100% {
+                    box-shadow: 0 0 52px 18px rgba(255, 208, 143, 0.32);
+                }
+
+                50% {
+                    box-shadow: 0 0 70px 24px rgba(255, 208, 143, 0.48);
+                }
+            }
+
             .card {
                 padding: 1.7rem 1.35rem;
                 width: 91%;
@@ -995,6 +1090,12 @@
 
         /* very small phones */
         @media (max-width: 360px) {
+            .sun {
+                top: 9%;
+                right: 10%;
+                width: 68px;
+            }
+
             .card {
                 padding: 1.5rem 1.15rem;
             }
@@ -1008,6 +1109,29 @@
             }
         }
 
+        /* phones held sideways */
+        @media (max-width: 900px) and (max-height: 500px) {
+            #ridge-far {
+                height: 22vh;
+                bottom: 20%;
+            }
+
+            #ridge-mid {
+                height: 26vh;
+                bottom: 8%;
+            }
+
+            #ridge-near {
+                height: 30vh;
+            }
+
+            .sun {
+                top: 8%;
+                right: 8%;
+                width: 64px;
+            }
+        }
+
         @media (prefers-reduced-motion: reduce) {
 
             #ridge-far,
@@ -1016,7 +1140,8 @@
             .drop,
             .steam,
             .mote,
-            .eq i {
+            .eq i,
+            body.cleared .sun {
                 animation: none !important;
             }
         }
@@ -1027,6 +1152,7 @@
 
     <div class="scene" id="scene">
         <div class="sky-clear"></div>
+        <div class="sun"></div>
         <div class="fog-band three"></div>
         <div class="fog-band one"></div>
         <svg id="ridge-far" class="ridge" viewBox="0 0 1000 220" preserveAspectRatio="none">
@@ -1085,11 +1211,11 @@
 
                 <p>So: <span class="accent">this Friday, August 21</span>, I'm getting on the bus. A <span
                         class="accent">hot caramel macchiato</span> for you. We can talk over it for as long as we
-                    want. I'll bring my charmera too, a few Kodak shots to capture how pretty your smile is. And to be honest,
-                    Baguio isn't really the reason I'm going up. <span class="accent">You are.</span> Nothing rigid
-                    past the coffee either — if the weather turns nice we can walk around, stroll wherever, take in
-                    whatever scenery the fog decides to show us. You can even tour me around since
-                    I'd probably get lost on my own anyway. <span class="accent">UKININAM</span></p>
+                    want. I'll bring my charmera too, a few Kodak shots to capture how pretty your smile is. And to be
+                    honest, Baguio isn't really the reason I'm going up. <span class="accent">You are.</span> Nothing
+                    rigid past the coffee either — if the weather turns nice we can walk around, stroll wherever, take
+                    in whatever scenery the fog decides to show us. You can even tour me around since I'd probably get
+                    lost on my own anyway. <span class="accent">UKININAM</span></p>
             </div>
 
             <p class="note">And if this is moving a little fast for you — I completely understand. Say so and there
