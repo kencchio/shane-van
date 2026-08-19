@@ -580,7 +580,7 @@
         .steam-wrap {
             width: 60px;
             height: 42px;
-            margin: 0 auto 10px;
+            margin: 0 auto 18px;
             position: relative;
         }
 
@@ -630,22 +630,13 @@
 
         .success-card em {
             font-family: 'Fraunces', serif;
-            font-size: clamp(1.25rem, 3.1vw, 1.6rem);
+            font-size: clamp(1.5rem, 3.8vw, 1.95rem);
             font-style: italic;
             font-weight: 500;
             color: #2b2018;
             display: block;
-            line-height: 1.55;
-            max-width: 21ch;
-        }
-
-        .success-card .after-line {
-            font-family: 'Nunito Sans', sans-serif;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: rgba(43, 32, 24, 0.72);
-            margin-top: 0.85rem;
-            max-width: 30ch;
+            line-height: 1.45;
+            max-width: 15ch;
         }
 
         /* hidden audio source */
@@ -666,7 +657,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            margin-top: 1.4rem;
+            margin-top: 1.7rem;
             padding: 8px 16px 8px 12px;
             border: 1px solid rgba(138, 84, 38, 0.28);
             border-radius: 40px;
@@ -764,7 +755,7 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             color: var(--caramel-deep);
-            margin-top: 1.2rem;
+            margin-top: 1.7rem;
             font-weight: 600;
         }
 
@@ -772,8 +763,10 @@
             font-family: 'Nunito Sans', sans-serif;
             font-size: 0.82rem;
             color: rgba(43, 32, 24, 0.55);
-            margin-top: 5px;
+            margin-top: 7px;
             font-style: italic;
+            max-width: 26ch;
+            line-height: 1.5;
         }
 
         /* ============ RESPONSIVE ============ */
@@ -934,25 +927,24 @@
     <div class="card" id="main-card">
 
         <div id="invite-content">
-            <span class="elevation-tag">rainy season, 16°C</span>
+            <span class="elevation-tag">up there: rainy season, 16°C</span>
             <h1>let's get <em>coffee</em>.</h1>
-            <p class="subtitle">a small invitation from a foggy hillside</p>
+            <p class="subtitle">an invitation from 257 kilometers away</p>
             <div class="rule"></div>
 
             <div class="invite-text">
-                <p class="lead">It's been raining here since noon — the slow kind that turns the whole city soft. Pine
-                    and wet asphalt, jeepney headlights blurred at the corner, fog sitting on the ridge like it has
-                    nowhere better to be.</p>
+                <p class="lead">It's been raining in Baguio since noon — I checked. Fog sitting low on the ridge,
+                    sixteen degrees, the whole city smelling like pine and wet asphalt. Meanwhile I'm down here, two
+                    hundred fifty-seven kilometers south of all that, thinking about it anyway.</p>
 
-                <p>And I'll be honest, Shane — the rain isn't stopping me. If anything it made up my mind. It's a long,
-                    cold, grey drive up here and I'd still take it, because I'd rather spend an afternoon actually
-                    getting to know you — the real, unhurried, in-person kind — than another week of talking through a
-                    screen.</p>
+                <p>And none of it is putting me off, Shane. If anything it settled things. It's a long, cold, grey
+                    drive up the mountain and I'd still make it — because I'd rather have one afternoon getting to
+                    know you properly, unhurried and in person, than another month of doing it through a screen.</p>
 
-                <p>So: <span class="accent">this Friday</span>, a <span class="accent">hot caramel macchiato</span>, my
-                    treat. I'll bring my film camera too — a few Kodak shots of you, if you'll let me. No pressure, and
-                    nothing planned past that. Just the cold outside, the steam off the cups, and however long the
-                    conversation wants to run.</p>
+                <p>So: <span class="accent">this Friday</span>, I'm coming up. A <span class="accent">hot caramel
+                        macchiato</span>, my treat. I'll bring my film camera too — a few Kodak shots of you, if you'll
+                    let me. No pressure, and nothing planned past that. Just the cold outside, the steam off the cups,
+                    and however long the conversation wants to run.</p>
             </div>
 
             <p class="sign-off">Say anything back. Even one word.</p>
@@ -973,9 +965,6 @@
             </div>
 
             <em>Look — the rain's letting up.</em>
-            <p class="after-line">I'll take the window seat and save you the warmer one, the side where you can watch
-                the fog slide off the ridge and the whole valley go gold. I'll have this one playing when you walk in.
-            </p>
 
             <!-- Tap to pause or resume the track -->
             <div class="now-playing" id="nowPlaying" role="button" tabindex="0" onclick="toggleMusic()"
