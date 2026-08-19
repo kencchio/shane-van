@@ -1048,43 +1048,70 @@
                 font-size: 0.92rem;
             }
 
+            /* stays a circle on phones — it is the sun */
             .success-card {
                 transform: translateX(0) !important;
-                border-radius: 26px !important;
-                aspect-ratio: unset !important;
-                width: 91% !important;
-                max-width: 91% !important;
-                padding: 2.5rem 1.6rem !important;
+                border-radius: 50% !important;
+                aspect-ratio: 1 / 1 !important;
+                width: min(88vw, 72vh) !important;
+                max-width: min(88vw, 72vh) !important;
+                max-height: none !important;
+                padding: 1.6rem !important;
                 text-align: center;
             }
 
+            /* keep content inside the square that fits within the circle */
+            #success-content {
+                max-width: 72%;
+            }
+
+            .steam-wrap {
+                height: 30px;
+                margin: 0 auto 10px;
+                transform: scale(0.82);
+            }
+
             .success-card em {
-                max-width: 100%;
-                font-size: clamp(1.35rem, 6.5vw, 1.7rem);
+                max-width: 11ch;
+                font-size: clamp(1.1rem, 5.4vw, 1.45rem);
+                line-height: 1.35;
             }
 
             .now-playing {
-                margin-top: 1.4rem;
-                padding: 8px 14px 8px 11px;
+                margin-top: 1rem;
+                padding: 6px 12px 6px 9px;
+                gap: 8px;
+                max-width: 100%;
+            }
+
+            .eq {
+                height: 13px;
+            }
+
+            .np-text {
+                min-width: 0;
+                line-height: 1.25;
             }
 
             .np-text .np-title {
-                font-size: 0.75rem;
+                font-size: 0.66rem;
             }
 
             .np-text .np-artist {
-                font-size: 0.58rem;
+                font-size: 0.52rem;
+                letter-spacing: 1px;
             }
 
             .success-card .signature {
-                margin-top: 1.4rem;
-                font-size: 0.7rem;
-                letter-spacing: 1.5px;
+                margin-top: 1rem;
+                font-size: 0.64rem;
+                letter-spacing: 1.4px;
             }
 
             .success-card .place {
-                font-size: 0.78rem;
-                max-width: 100%;
+                font-size: 0.7rem;
+                max-width: 20ch;
+                margin-top: 5px;
             }
         }
 
@@ -1106,6 +1133,24 @@
 
             h1 {
                 font-size: 1.65rem;
+            }
+
+            .success-card {
+                width: min(92vw, 70vh) !important;
+                max-width: min(92vw, 70vh) !important;
+                padding: 1.3rem !important;
+            }
+
+            #success-content {
+                max-width: 74%;
+            }
+
+            .success-card em {
+                font-size: 1.08rem;
+            }
+
+            .np-text .np-title {
+                font-size: 0.62rem;
             }
         }
 
@@ -1129,6 +1174,33 @@
                 top: 8%;
                 right: 8%;
                 width: 64px;
+            }
+
+            .success-card {
+                width: min(86vh, 70vw) !important;
+                max-width: min(86vh, 70vw) !important;
+                padding: 1.2rem !important;
+            }
+
+            #success-content {
+                max-width: 76%;
+            }
+
+            .success-card em {
+                font-size: 1.05rem;
+            }
+
+            .steam-wrap {
+                height: 22px;
+                margin-bottom: 6px;
+            }
+
+            .now-playing {
+                margin-top: 0.7rem;
+            }
+
+            .success-card .signature {
+                margin-top: 0.7rem;
             }
         }
 
